@@ -35,4 +35,5 @@ group :development do
   group :test do
     gem 'shoulda-matchers'
     gem 'rubocop'
+    gem 'pry'
   end

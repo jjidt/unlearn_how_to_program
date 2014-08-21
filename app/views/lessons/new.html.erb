@@ -1,0 +1,16 @@
+<h1>Create New Lesson</h1>
+
+
+<form action="/lessons/create" method="post">
+  <label for="lesson_name">Lesson Name</label>
+  <input id="lesson_name" type="text" name="lesson[name]" class = "form-control"  />
+  <label for="lesson_content">Content</label>
+  <textarea id="lesson_content" class = "form-control" name="lesson[content]" rows="6"></textarea>
+  <label for="lesson_where_to_insert">Insert <strong>AFTER</strong> lesson: </label>
+  <select>
+    <% @lessons.each do |lesson| %>
+    <option value="<%= lesson.number %>" name="lesson[number]"><%= lesson.name %></option>
+    <% end %>
+  </select>
+</form>
+
