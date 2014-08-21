@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.footer {
+  padding-top: 60px;
+}
+
+.navbar_menu_item {
+  list-style-type: none;
+}

@@ -1,5 +1,7 @@
 <h1>EDITING <%= @lesson.name %></h1>
 <hr />
+<%= render('layouts/errors', :object => @lesson) %>
+
 
 <form action="/lessons/<%= @lesson.id %>" method="post">
   <input name="_method" type="hidden" value="patch">

@@ -5,13 +5,23 @@ class Lesson < ActiveRecord::Base
   validates :number, presence: true
   validates :content, presence: true
 
-  def self.shift_lessons_from(start_index)
+  def self.increment_lessons(start_index)
     index = start_index.to_i
     where("number >= #{index}").each { |lesson| lesson.update( {:number => (lesson.number + 1) } )  }
+  end
+
+  def self.decrement_lessons(start_index)
+    index = start_index.to_i
+    where("number >= #{index}").each { |lesson| lesson.update( {:number => (lesson.number - 1) } ) }
   end
 
   def next_lesson
     Lesson.find_by(:number => (self.number + 1))
   end
+
+  def prev_lesson
+    Lesson.find_by(:number => (self.number - 1))
+  end
+
 end
 

@@ -10,3 +10,5 @@
   <a href="/lessons/<%= @lesson.id %>" data-confirm="Delete Lesson: Are You Sure?" data-method="delete" rel="nofollow">DELETE THIS LESSON</a></p>
 <hr />
 <p><a href="/">Return to Index</a></p>
+
+<%= render('layouts/navbars', :object => @lesson) %>

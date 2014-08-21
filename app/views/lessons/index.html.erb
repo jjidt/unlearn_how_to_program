@@ -2,7 +2,7 @@
 
 <ul>
   <% @lessons.order(:number).each do |lesson| %>
-    <li>Lesson #<%=lesson.number + 1%> - <a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
+    <li>Lesson #<%=lesson.number %> - <a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
   <% end %>
 </ul>
 

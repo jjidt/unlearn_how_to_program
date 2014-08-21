@@ -1,0 +1,20 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <ul class="pull-left">
+      <li class="navbar_menu_item">
+        <% if object.prev_lesson %>
+          <a href="/lessons/<%= object.prev_lesson.id %>">PREVIOUS</a>
+        <% end %>
+        </li>
+      </ul>
+    <ul class="pull-right">
+      <li class="navbar_menu_item">
+        <% if object.next_lesson %>
+          <a href="/lessons/<%= object.next_lesson.id%>">NEXT</a>
+        <% end %>
+        </li>
+      </ul>
+  </div>
+</nav>

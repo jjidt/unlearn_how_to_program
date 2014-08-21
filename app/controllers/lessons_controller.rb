@@ -13,10 +13,14 @@ class LessonsController < ApplicationController
 
   def create
     @lessons = Lesson.all
+
+    insert_at_number = (params[:lesson][:number]).to_i + 1
+    Lesson.increment_lessons(insert_at_number)
+
     @lesson = Lesson.new(params[:lesson])
-    if @lesson.valid?
-       Lesson.shift_lessons_from(@lesson.number)
-       @lesson.save
+    @lesson[:number] = insert_at_number
+
+    if @lesson.save
        redirect_to("/lessons/#{@lesson.id}")
     else
       render("lessons/new.html.erb")
@@ -35,13 +39,14 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.find(params[:id])
-    @lesson.update(params[:lesson])
-    render('/lessons/show.html.erb')
+    @lesson.update(params[:lesson]) ? redirect_to("/lessons/#{params[:id]}") : render("lessons/edit.html.erb")
+
   end
 
   def delete
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
+    Lesson.decrement_lessons(@lesson.number)
     redirect_to("/")
   end
 
