@@ -1,0 +1,23 @@
+
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: unlearn_how_development
+
+test:
+  <<: *default
+  database: unlearn_how_test
+
+#
+production:
+  <<: *default
+  database: unlearn_how_production
+  username: unlearn_how
+  password: <%= ENV['UNLEARN_HOW_DATABASE_PASSWORD'] %>
