@@ -4,13 +4,14 @@
 
 <form action="/lessons/create" method="post">
   <label for="lesson_name">Lesson Name</label>
-  <input id="lesson_name" type="text" name="lesson[name]" class = "form-control"  />
+  <input id="lesson_name" type="text" name="lesson[name]" class = "form-control"  value="<%= @lesson.name %>" />
   <label for="lesson_content">Content</label>
-  <textarea id="lesson_content" class = "form-control" name="lesson[content]" rows="6"></textarea>
+  <textarea id="lesson_content" class = "form-control" name="lesson[content]" rows="6" value="<%= @lesson.content %>"></textarea>
   <label for="lesson_where_to_insert">Insert <strong>AFTER</strong> lesson: </label>
-  <select>
-    <% @lessons.each do |lesson| %>
-    <option value="<%= lesson.number %>" name="lesson[number]"><%= lesson.name %></option>
+  <select name="lesson[number]">
+    <option value="0">MAKE FIRST LESSON</option>
+    <% @lessons.order(:number).each do |lesson| %>
+    <option value="<%= lesson.number %>" ><%= lesson.name %></option>
     <% end %>
   </select>
   <button>Add</button>

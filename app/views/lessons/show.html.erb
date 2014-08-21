@@ -1,0 +1,12 @@
+
+
+<h1><%= @lesson.name %></h1>
+<hr />
+
+<p><%= @lesson.content.html_safe %></p>
+
+<hr />
+<p><a href="/lessons/<%= @lesson.id %>/edit">EDIT THIS LESSON</a> |
+  <a href="/lessons/<%= @lesson.id %>" data-confirm="Delete Lesson: Are You Sure?" data-method="delete" rel="nofollow">DELETE THIS LESSON</a></p>
+<hr />
+<p><a href="/">Return to Index</a></p>

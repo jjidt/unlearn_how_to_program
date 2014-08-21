@@ -1,0 +1,9 @@
+<h1>Unlearn How to Program</h1>
+
+<ul>
+  <% @lessons.order(:number).each do |lesson| %>
+    <li>Lesson #<%=lesson.number + 1%> - <a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></li>
+  <% end %>
+</ul>
+
+<p><strong>ADMIN:</strong>  <a href="/lessons/new">Create new Lesson</a></p>
